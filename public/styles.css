@@ -157,4 +157,19 @@ button {
     #header {
         margin-top: 5px;
     }
+
+    .items {
+        width: 220px;
+    }
+
+    input[type="text"] {
+        text-align: center;
+        height: 40px;
+        top: 10px;
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        font-weight: 200;
+        width: 210px;
+    }
 }
