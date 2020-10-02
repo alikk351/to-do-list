@@ -1,0 +1,40 @@
+<%- include("header") %>
+
+<div id="weather">
+    <h4><%= date %></h4>
+</div>
+
+<div class="box" id="header">
+    <h1><%= ListTitle %> </h1>
+</div>
+
+<div class="box">
+
+    <% for(let i=0;i<items.length;i++){ %>
+        <div class="item items"><%= items[i].name %> </div>
+
+        <form style="display: inline-block;" action="/delete" method="post">
+            <input type="hidden" name="list_title" value="<%= ListTitle %>">
+            <input type="hidden" name="item_id" value="<%= items[i]._id %>">
+            <button class="hvr-sweep-to-left" type="submit">Delete Item</button>
+        </form>
+
+        <% if (i!==items.length-1){ %>
+            <hr>
+        <% } %>
+    <% } %>
+
+</div>
+
+<div class="box">
+    <div class="item">
+        <form action="/" method="POST">
+            <input type="hidden" name="list_name" value="<%= ListTitle %>">
+            <input type="text" id="iteminput" name="listItem" placeholder="New Item" autocomplete="off" autofocus>
+            <button class="hvr-sweep-to-left" type="submit" id="add_item">Add Item</button>
+        </form>
+        <p><span id="remainingCharacters"> 0</span> / 20</p> 
+    </div>
+</div>
+
+<%- include("footer") %>
